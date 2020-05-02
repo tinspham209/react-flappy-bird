@@ -1,0 +1,7 @@
+.Game {
+  width: 300px;
+  height: 500px;
+  position: relative;
+
+  background: url(../../assets/bg.png);
+}

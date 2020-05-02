@@ -1,0 +1,10 @@
+.Bird {
+  width: 34px;
+  height: 24px;
+
+  top: 250px;
+  left: 150px;
+  position: absolute;
+
+  background: url(../../assets/bird.png);
+}
