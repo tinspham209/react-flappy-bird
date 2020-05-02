@@ -1,3 +1,7 @@
+.Pipe {
+  position: relative;
+}
+
 .Pipe-top {
   width: 50px;
   height: 200px;

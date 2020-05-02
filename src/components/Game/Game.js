@@ -41,7 +41,12 @@ const start = () => {
     if (status !== "playing") {
       setInterval(() => {
         dispatch({ type: "FALL" });
+        dispatch({ type: "RUNNING" });
       }, 200);
+
+      setInterval(() => {
+        dispatch({ type: "GENERATE" });
+      }, 2000);
       dispatch({ type: "START" });
     }
   };
