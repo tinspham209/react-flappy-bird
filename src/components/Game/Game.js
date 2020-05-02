@@ -19,6 +19,7 @@ const Game = ({ status }) => {
   }, []);
 
   console.log("status", status);
+
   return (
     <div className="Game">
       <Bird />
@@ -33,7 +34,9 @@ const fly = () => {
 };
 
 const start = () => {
-  console.log("playing");
+  return (dispatch) => {
+    dispatch({ type: "START" });
+  };
 };
 
 const mapStateToProps = (state) => {
