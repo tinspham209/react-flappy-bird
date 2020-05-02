@@ -5,7 +5,7 @@ import Pipe from "../Pipe/Pipe";
 import { connect } from "react-redux";
 
 import "./Game.css";
-const Game = ({ status }) => {
+const Game = ({ status, start, fly }) => {
   useEffect(() => {
     const handleKeyPress = (e) => {
       if (e.keyCode === 32) {
@@ -30,20 +30,28 @@ const Game = ({ status }) => {
 };
 
 const fly = () => {
-  console.log("fly");
+  return (dispatch) => {
+    dispatch({ type: "FLY" });
+  };
 };
 
 const start = () => {
-  return (dispatch) => {
-    dispatch({ type: "START" });
+  return (dispatch, getState) => {
+    const { status } = getState().Game;
+    if (status !== "playing") {
+      setInterval(() => {
+        dispatch({ type: "FALL" });
+      }, 200);
+      dispatch({ type: "START" });
+    }
   };
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ Game }) => {
   return {
-    status: state.status,
+    status: Game.status,
   };
 };
-const mapDispatchToProps = {};
+const mapDispatchToProps = { start, fly };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game);
