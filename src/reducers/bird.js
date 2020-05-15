@@ -9,6 +9,8 @@ export default (state = initialState, { type } = {}) => {
       return { ...state, y: state.y - 50, r: -20 };
     case "FALL":
       return { ...state, y: state.y + 30, r: 0 };
+    case "GAME_OVER":
+      return initialState;
 
     default:
       return state;
